@@ -1,0 +1,5 @@
+#!/bin/bash
+#This is the shell script to run shadowsocksR in the background.
+
+eval $(ps -ef | grep -v grep | grep local.py | awk '{ print "kill -9 " $2 }')
+nohup python /opt/shadowsocksr/shadowsocks/local.py -c /opt/shadowsocksr/config.json >> /opt/shadowsocksr/shadowsocks/ssserver.log 2>&1 &
